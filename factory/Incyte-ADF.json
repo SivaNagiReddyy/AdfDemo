@@ -1,0 +1,9 @@
+{
+	"name": "Incyte-ADF",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "08565788-1b08-4a0b-afc8-f992d46f79c4",
+		"tenantId": "2a731c61-a2b2-4661-8409-5b861cf40d0c"
+	}
+}

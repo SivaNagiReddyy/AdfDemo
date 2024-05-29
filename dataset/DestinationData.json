@@ -1,0 +1,40 @@
+{
+	"name": "DestinationData",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "StorageLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "outputfiles"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Customer_id",
+				"type": "String"
+			},
+			{
+				"name": "Customer_name",
+				"type": "String"
+			},
+			{
+				"name": "Customer_email",
+				"type": "String"
+			},
+			{
+				"name": "Customer_address",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
