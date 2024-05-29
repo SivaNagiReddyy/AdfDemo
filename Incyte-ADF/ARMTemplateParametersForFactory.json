@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "Incyte-ADF"
+		},
+		"ADLS_Connection_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase_NewConnection_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase_connection_password": {
+			"value": ""
+		},
+		"StorageLinkedService_connectionString": {
+			"value": ""
+		},
+		"ADLS_Connection_properties_typeProperties_url": {
+			"value": "https://incyteadls.dfs.core.windows.net/"
+		},
+		"AzureSqlDatabase_NewConnection_properties_typeProperties_server": {
+			"value": "incyteserver.database.windows.net"
+		},
+		"AzureSqlDatabase_NewConnection_properties_typeProperties_database": {
+			"value": "IncyteDB"
+		},
+		"AzureSqlDatabase_NewConnection_properties_typeProperties_userName": {
+			"value": "incyteadmin"
+		},
+		"AzureSqlDatabase_connection_properties_typeProperties_server": {
+			"value": "incyteserver.database.windows.net"
+		},
+		"AzureSqlDatabase_connection_properties_typeProperties_database": {
+			"value": "IncyteDB"
+		},
+		"AzureSqlDatabase_connection_properties_typeProperties_userName": {
+			"value": "incyteadmin"
+		}
+	}
+}

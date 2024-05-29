@@ -1,0 +1,119 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "Incyte-ADF"
+		},
+		"ADLS_Connection_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLS_Connection'"
+		},
+		"AzureSqlDatabase_NewConnection_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase_NewConnection'"
+		},
+		"AzureSqlDatabase_connection_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase_connection'"
+		},
+		"StorageLinkedService_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'StorageLinkedService'"
+		},
+		"ADLS_Connection_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://incyteadls.dfs.core.windows.net/"
+		},
+		"AzureSqlDatabase_NewConnection_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "incyteserver.database.windows.net"
+		},
+		"AzureSqlDatabase_NewConnection_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "IncyteDB"
+		},
+		"AzureSqlDatabase_NewConnection_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "incyteadmin"
+		},
+		"AzureSqlDatabase_connection_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "incyteserver.database.windows.net"
+		},
+		"AzureSqlDatabase_connection_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "IncyteDB"
+		},
+		"AzureSqlDatabase_connection_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "incyteadmin"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "Incyte-ADF_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ADLS_Connection_accountKey": {
+						"value": "[parameters('ADLS_Connection_accountKey')]"
+					},
+					"AzureSqlDatabase_NewConnection_password": {
+						"value": "[parameters('AzureSqlDatabase_NewConnection_password')]"
+					},
+					"AzureSqlDatabase_connection_password": {
+						"value": "[parameters('AzureSqlDatabase_connection_password')]"
+					},
+					"StorageLinkedService_connectionString": {
+						"value": "[parameters('StorageLinkedService_connectionString')]"
+					},
+					"ADLS_Connection_properties_typeProperties_url": {
+						"value": "[parameters('ADLS_Connection_properties_typeProperties_url')]"
+					},
+					"AzureSqlDatabase_NewConnection_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase_NewConnection_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase_NewConnection_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase_NewConnection_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase_NewConnection_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase_NewConnection_properties_typeProperties_userName')]"
+					},
+					"AzureSqlDatabase_connection_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase_connection_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase_connection_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase_connection_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase_connection_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase_connection_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
